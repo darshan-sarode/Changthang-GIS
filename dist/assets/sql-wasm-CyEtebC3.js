@@ -1,0 +1,1 @@
+var e=`/Changthang-GIS/assets/sql-wasm-BG3JTe3S.wasm`;export{e as default};
