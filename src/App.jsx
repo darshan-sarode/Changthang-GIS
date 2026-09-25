@@ -609,7 +609,9 @@ function MapPanel({ basemapId, layerState, resetKey, sidebarCollapsed, uploadedL
 function App() {
   const [basemapId, setBasemapId] = useState('arcgis-imagery')
   const [isDarkMode, setIsDarkMode] = useState(false)
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false)
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(() => (
+    typeof window !== 'undefined' && window.matchMedia('(max-width: 700px)').matches
+  ))
   const [layers, setLayers] = useState(() => Object.fromEntries(layerCatalog.map((layer) => [layer.id, layer.enabled])))
   const [uploadedLayers, setUploadedLayers] = useState([])
   const [birdLayer, setBirdLayer] = useState(null)
